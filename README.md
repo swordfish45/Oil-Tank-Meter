@@ -10,6 +10,18 @@ Planned Features:
 - Evaluate projected runout date
 - Alarm feature
 
+Initial Setup
+Enable ssh through raspi-config
+
+sudo apt-get install
+git
+sqlite3
+
+sqlite> BEGIN;
+sqlite> CREATE TABLE level (timestamp DATETIME, level NUMERIC);
+sqlite> COMMIT;
+
+
 Sensor interface code from:
 https://www.modmypi.com/blog/hc-sr04-ultrasonic-range-sensor-on-the-raspberry-pi
 
