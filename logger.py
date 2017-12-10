@@ -7,7 +7,7 @@ dbname='fuellog.db'
 def log_level(level):
     conn=sqlite3.connect(dbname)
     curs=conn.cursor()
-
+    print level
     curs.execute("INSERT INTO level values(datetime('now'), (?))", (level,))
 
     conn.commit()
