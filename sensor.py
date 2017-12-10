@@ -2,29 +2,46 @@ import RPi.GPIO as GPIO
 import time
 import signal
 import sys
-
-GPIO.setmode(GPIO.BCM)
-
-def signal_handler(signal,frame):
-    print("exiting")
-    GPIO.cleanup()
-    sys.exit(0);
-
-signal.signal(signal.SIGINT, signal_handler)
+import statistics
 
 trig=23
 echo=24
 
-print "Distance Measurement In Progress"
+def cleanup():
+    GPIO.cleanup()
 
-GPIO.setup(trig,GPIO.OUT)
-GPIO.setup(echo,GPIO.IN)
+#
+# Ctrl c handler
+# 
+def signal_handler(signal,frame):
+    print("exiting")
+    cleanup()
+    sys.exit(0);
 
-GPIO.output(trig,False)
-print "waiting for sensor to settle"
-time.sleep(2)
+signal.signal(signal.SIGINT, signal_handler)
 
-while(True):
+#
+# Main
+#
+def initialize(debug=False):
+    GPIO.setmode(GPIO.BCM)
+    if (debug):
+        print "Distance Measurement In Progress"
+
+    GPIO.setup(trig,GPIO.OUT)
+    GPIO.setup(echo,GPIO.IN)
+
+    GPIO.output(trig,False)
+
+    if (debug):
+        print "waiting for sensor to settle"
+    time.sleep(2)
+
+#
+# Return single sample
+# Must be run after initialize, and cleanup must be run after
+#
+def get_sample(debug=False) :
     GPIO.output(trig,True)
     time.sleep(0.00001)
     GPIO.output(trig,False)
@@ -43,7 +60,25 @@ while(True):
 
     distance=round(distance,2)
 
-    print "Distance:",distance,"in"
+    if (debug):
+        print "Distance:",distance,"in"
+    return distance
+        
 
-    time.sleep(1)
+def get_distance(debug=False):
+    samples=[]
+    initialize()
 
+    for x in range (0,5):
+        samples.append(get_sample(debug))
+        time.sleep(0.1)
+    if (debug):
+        print samples
+        print statistics.mean(samples)
+        print statistics.stdev(samples)
+
+    cleanup()
+
+
+if __name__ == "__main__":
+    get_distance()
