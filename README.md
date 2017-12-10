@@ -12,6 +12,7 @@ Planned Features:
 
 Initial Setup
 Enable ssh through raspi-config
+Through locale setting, set time zone
 
 sudo apt-get install
 git
