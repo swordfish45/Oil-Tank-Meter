@@ -14,9 +14,12 @@ Initial Setup
 Enable ssh through raspi-config
 Through locale setting, set time zone
 
+
 sudo apt-get install
 git
 sqlite3
+sudo apt-get install apache2 ; sudo a2enmod cgid
+
 
 sqlite> BEGIN;
 sqlite> CREATE TABLE level (timestamp DATETIME, level NUMERIC);
