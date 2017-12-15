@@ -38,6 +38,7 @@ old gague measures 120-130 gal prior to removal, 130-140 gal after reinstall
 21.5 inch from bottom is 129-136 gal. Accurate to guage level to nearest 10 gal.
 
 
-
+webgui and monitor from:
+https://github.com/Pyplate/rpi_temp_logger/
 
 
