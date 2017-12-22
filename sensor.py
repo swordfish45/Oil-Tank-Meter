@@ -13,7 +13,7 @@ class sensor:
     # 
     def signal_handler(signal,frame):
         print("exiting")
-        cleanup()
+        GPIO.cleanup()
         sys.exit(0);
 
     signal.signal(signal.SIGINT, signal_handler)

@@ -124,10 +124,14 @@ def show_stats(option):
     curs.execute("SELECT avg(level) FROM level WHERE timestamp>datetime('now','-%s hour') AND timestamp<=datetime('now')" % option)
     rowavg=curs.fetchone()
 
+#    curs.execute("SELECT * FROM level ORDER BY column DESCR LIMIT 1" % option)
+#    rowcur=curs.fetchone()
 
     print "<hr>"
 
 
+#    print "<h2>Inches Remaining &nbsp</h2>"
+#    print rowcur 
     print "<h2>Minumum fuel_level&nbsp</h2>"
     print rowstrmin
     print "<h2>Maximum fuel_level</h2>"

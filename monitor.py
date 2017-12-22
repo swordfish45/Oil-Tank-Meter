@@ -1,10 +1,5 @@
 #!/usr/bin/env python
 
-import sqlite3
-
-import os
-import time
-import glob
 import logger
 import sensor
 
