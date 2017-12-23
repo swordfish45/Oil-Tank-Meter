@@ -14,10 +14,11 @@ def main():
 
     s = sensor.sensor()
     dist = s.get_distance()
-    level = tank_height - dist
 
-    if level != None:
+    if dist != None:
+        level = tank_height - dist
         print "level="+str(level)
+        
         logger.log_level(level)
     else:
         print "Error in monitor. Failed to get level"

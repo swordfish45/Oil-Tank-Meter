@@ -8,7 +8,7 @@ import cgitb
 
 # global variables
 speriod=(15*60)-1
-dbname='/var/www/fuellog.db'
+dbname='/usr/lib/cgi-bin/fuellog.db'
 
 
 
