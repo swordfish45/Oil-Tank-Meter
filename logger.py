@@ -2,7 +2,7 @@
 #store level in database
 import sqlite3
 
-dbname='fuellog.db'
+dbname='/usr/lib/cgi-bin/fuellog.db'
 
 def log_level(level):
     conn=sqlite3.connect(dbname)
