@@ -25,6 +25,8 @@ sqlite> BEGIN;
 sqlite> CREATE TABLE level (timestamp DATETIME, level NUMERIC);
 sqlite> COMMIT;
 
+crontab -e (not www-data user)
+0 * * * * /usr/lib/cgi-bin/monitor.py >> /usr/lib/cgi-bin/log.txt 2>&1
 
 Sensor interface code from:
 https://www.modmypi.com/blog/hc-sr04-ultrasonic-range-sensor-on-the-raspberry-pi
