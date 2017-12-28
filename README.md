@@ -47,6 +47,10 @@ installed
 gauge level 120-130 gal
 reading 18.4 inch from bottom ~110 gal
 
+12/28/17
+monitor level 17.17 inch ~ est 103.5gal . Charted ~101 gal
+actual level measured with tape ~15 inch. Charted ~86 gal
+
 webgui and monitor from:
 https://github.com/Pyplate/rpi_temp_logger/
 
